@@ -1,5 +1,7 @@
 package basics;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -63,11 +65,15 @@ public class LocatingTechniques {
 		 * element using any attribute value basic syntax to write css is syntax:
 		 * tagname[attribute_name = 'attribute_value']
 		 */
+		By css = By.cssSelector("input[value='2']");
+		WebElement maleRadio = driver.findElement(css);
 
 		/*
 		 * using xpath of an element basic syntax to write xpath is syntax:
 		 * //tag_name[@attribute_name = 'attribute_value']
 		 */
+		By xpath = By.xpath("//input[@aria-label= 'Log In']");
+		WebElement loginButton = driver.findElement(xpath);
 
 		/*
 		 * if we locating element using className or tagName then, there might high
@@ -75,16 +81,25 @@ public class LocatingTechniques {
 		 */
 
 		/*
-		 * using class name of a element in general class attribute contains several
-		 * class names, so to locate element using class name we have to use one these
+		 * using class name of a element 
+		 * in general class attribute contains several
+		 * class names, so to locate element using class name we have to use one of these
 		 * class names instead of complete class attribute value eg: class = 'class1
 		 * class2 class3' above class attribute contains 3 classes separated by space
 		 * syntax: By.className('class1')
 		 */
-
+		By className = By.className("inputtext");
+		List<WebElement> textFields = driver.findElements(className);
+		System.out.println(textFields.size());
+		
 		/*
 		 * using tag name of the element
 		 */
+		By tagName = By.tagName("a");
+		List<WebElement> links = driver.findElements(tagName);
+		System.out.println(links.size());
+
+		driver.close();
 	}
 
 }
