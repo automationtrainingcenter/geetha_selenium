@@ -70,6 +70,20 @@ public class WebElementMethods {
 		System.out.println("sing up button is at x = "+location.getX()+" y = "+location.getY());
 		
 		
+		// isDisplayed(): - returns true if given element is present in the web page
+		boolean reEnterEmailDisplayed = driver.findElement(By.name("reg_email_confirmation__")).isDisplayed();
+		System.out.println("reenter email addresss is dispalyed "+reEnterEmailDisplayed);
+		
+		
+		// isEnabled() - returns true if an element is in enable mode
+		boolean firstNameEnabled = firstName.isEnabled();
+		System.out.println("first name element is enabled "+firstNameEnabled);
+		
+		// isSelected() - returns true if a radio button, check box is selected or not and also to verify an option in 
+		// list box or drop down list is selected or not
+		boolean maleRadioSelected = driver.findElement(By.cssSelector("input[value = '2']")).isSelected();
+		System.out.println("male radio button selected "+maleRadioSelected);
+		
 		driver.close();
 	}
 
