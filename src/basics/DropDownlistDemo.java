@@ -1,5 +1,7 @@
 package basics;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,6 +27,10 @@ public class DropDownlistDemo {
 		// create Select class object
 		Select daySelect = new Select(dayElement);
 		
+		// get the default selected date
+		WebElement defaultDate = daySelect.getFirstSelectedOption();
+		System.out.println("default date is "+defaultDate.getText());
+		
 		// selecting an option based based on index number
 		daySelect.selectByIndex(1);
 		Thread.sleep(2000);
@@ -34,6 +40,10 @@ public class DropDownlistDemo {
 		
 		// createa Select class object
 		Select monthSelect = new Select(monthElement);
+		
+		// get the default selected month
+		WebElement defaultMonth = monthSelect.getFirstSelectedOption();
+		System.out.println("default month is "+defaultMonth.getText());
 		
 		// selecting an option based on the value of the value attribute of the option
 		monthSelect.selectByValue("11");
@@ -47,9 +57,24 @@ public class DropDownlistDemo {
 //		Select yearSelect = new Select(yearElement);
 		Select yearSelect = new Select(driver.findElement(By.id("year")));
 		
+		// get default selected year
+		WebElement defaultYear = yearSelect.getFirstSelectedOption();
+		System.out.println("default year is "+defaultYear.getText());
+		
 		//selecting an option based on visible text (i.e. inner text of the <option> and </option>)
 		yearSelect.selectByVisibleText("2000");
 		Thread.sleep(2000);
+		
+		
+		// get all the selected options
+		List<WebElement> allSelectedYearOptions = yearSelect.getAllSelectedOptions();
+		System.out.println("number of selected year options are "+allSelectedYearOptions.size());
+		
+		// getOptions() -- returns List<WebElement> all the options as a list
+		List<WebElement> monthOptions = monthSelect.getOptions();
+		for(WebElement option : monthOptions) {
+			System.out.println(option.getText());
+		}
 		
 		
 		driver.close();
