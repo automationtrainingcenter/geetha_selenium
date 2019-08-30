@@ -1,0 +1,12 @@
+alert() -- switch the driver focus alert
+
+frame(int arg) --  switch driver focus to Frame with given index number
+frame(String arg) -- switch driver focus to Frame with given id and name attribute values
+frame(WebElement arg) -- switch driver focus to Frame with given frame element
+parentFrame() - switch driver focus from inner frame to parent frame
+defaultContent() -- switch driver focus from any frame to main page
+
+
+window(String windowId) -- switch driver focus to window with given window id
+
+activeElement() -- switch driver focus to active element in the current web page
