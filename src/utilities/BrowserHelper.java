@@ -36,4 +36,17 @@ public class BrowserHelper {
 			driver.close();
 		}
 	}
+	
+	
+	/*
+	 * sleep(long timeInMillis) it will wait for the time we specified
+	 */
+	public static void sleep(long timeInMillis) {
+		try {
+			Thread.sleep(timeInMillis);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

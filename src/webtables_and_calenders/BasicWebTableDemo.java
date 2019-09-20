@@ -21,7 +21,7 @@ public class BasicWebTableDemo extends BrowserHelper {
 		for (int i = 1; i < rows.size(); i++) {
 			// locate all columns in every row using td tag
 			List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
-			// iterate over each column or cell and get the table cel
+			// iterate over each column or cell and get the table cell
 			for (WebElement cell : cells) {
 				System.out.print(cell.getText()+"\t");
 			}
