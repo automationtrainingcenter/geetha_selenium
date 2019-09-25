@@ -23,5 +23,11 @@ public class JavaScriptHelper {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("document.documentElement.scrollBy(0, arguments[0])", y);
 	}
+	
+	// execute any javascript code
+	public static Object executeJavaScript(WebDriver driver, String arg, Object... args) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return js.executeScript(arg, args);
+	}
 
 }
