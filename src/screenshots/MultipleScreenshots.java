@@ -8,7 +8,7 @@ import utilities.ScreenshotHelper;
 public class MultipleScreenshots extends BrowserHelper {
 
 	public static void main(String[] args) {
-		WebDriver driver = openBrowser("chrome", "http://www.amazon.in");
+		WebDriver driver = openBrowser("chrome", "http://www.flipkart.com");
 		sleep(2000);
 
 //		long scrollHeight = (long) JavaScriptHelper.executeJavaScript(driver, "return document.documentElement.scrollHeight");
@@ -22,7 +22,7 @@ public class MultipleScreenshots extends BrowserHelper {
 //			sleep(1000);
 //		}
 
-		ScreenshotHelper.takeMultipleScreenshots(driver, "screenshots", "amazon");
+		ScreenshotHelper.takeMultipleScreenshots(driver, "screenshots", "flipkart");
 
 		closeBroser();
 	}
