@@ -25,7 +25,7 @@ public class ScreenshotHelper {
 	}
 
 	// selenium approach to capture the screenshot
-	public static void screenCapture(WebDriver driver, String folderName, String fileName) {
+	public static String screenCapture(WebDriver driver, String folderName, String fileName) {
 		// convert WebDriver object reference to TakeScreenshot object reference
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File srcImg = ts.getScreenshotAs(OutputType.FILE);
@@ -37,6 +37,7 @@ public class ScreenshotHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return destImg.getAbsolutePath();
 	}
 
 	// alert screenshot

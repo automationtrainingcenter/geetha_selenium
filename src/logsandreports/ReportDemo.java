@@ -10,6 +10,8 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import utilities.ScreenshotHelper;
+
 /*This class explains how to work with extent reports 2, here we are taking some dummy test cases
 to explain the extent reports features.
 Extent report mainly provides two classes to generate the reports
@@ -18,10 +20,9 @@ Extent report mainly provides two classes to generate the reports
 2. ExtentTest -- which will used to log some info to the report
 */
 
-public class ReportDemo {
+public class ReportDemo extends BaseClass{
 	EventFiringWebDriver driver;
-	ExtentReports report;
-	ExtentTest test;
+	Listener listener;
 	
 	public void launchBrowser() {
 		//2. start the test using ExtentReports class object which creates ExtentTest object
@@ -30,7 +31,7 @@ public class ReportDemo {
 		WebDriver wdriver = new ChromeDriver();
 		wdriver.manage().window().maximize();
 		
-		Listener listener = new Listener();
+		listener = new Listener();
 		driver = new EventFiringWebDriver(wdriver);
 		driver.register(listener);
 		
@@ -59,6 +60,9 @@ public class ReportDemo {
 		driver.findElement(By.id("txtPword")).sendKeys("Admin");
 		driver.findElement(By.id("login")).click();
 		test.log(LogStatus.FAIL, "valid login passed");
+		// take a screenshot and add that screenshot to the report
+		String imgPath = ScreenshotHelper.screenCapture(driver, "screenshots", "login");
+		test.log(LogStatus.INFO, "screenshot: "+test.addScreenCapture(imgPath));
 		report.endTest(test);
 	}
 
@@ -74,15 +78,15 @@ public class ReportDemo {
 	public static void main(String[] args) {
 		ReportDemo obj = new ReportDemo();
 		//1. create an object of ExtentReports class 
-		obj.report = new ExtentReports(".\\reports\\report.html");
+		report = new ExtentReports(".\\reports\\report.html");
 		obj.launchBrowser();
 		obj.invalidLogin();
 		obj.validLogin();
 		obj.closeBrowser();
 		// 4. save the report by using flush() of ExtentReports class
-		obj.report.flush();
+		report.flush();
 		// 5. close ExtentReports class object
-		obj.report.close();
+		report.close();
 		
 		
 	}

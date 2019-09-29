@@ -23,22 +23,22 @@ public class LogsDemo {
 		driver.manage().window().maximize();
 
 		// create an object of Listener class
-		Listener listener = new Listener();
-		// create an object of EventFiringWebDriver class
-		EventFiringWebDriver edriver = new EventFiringWebDriver(driver);
-		edriver.register(listener);
-		
-		edriver.get("https://learn.letskodeit.com/p/practice");
-		edriver.findElement(By.id("name")).sendKeys("sunshine");
-		edriver.findElement(By.id("alertbtn")).click();
-		edriver.switchTo().alert().accept();
-		edriver.findElement(By.id("openwindow")).click();
-		List<String> handles = new ArrayList<>(edriver.getWindowHandles());
-		edriver.switchTo().window(handles.get(1));
-		edriver.findElement(By.id("header-sign-up-btn")).getText();
-		edriver.switchTo().window(handles.get(0));
-		edriver.findElement(By.id("hondaradio")).click();
-		edriver.close();
+//		Listener listener = new Listener();
+//		// create an object of EventFiringWebDriver class
+//		EventFiringWebDriver edriver = new EventFiringWebDriver(driver);
+//		edriver.register(listener);
+//		
+//		edriver.get("https://learn.letskodeit.com/p/practice");
+//		edriver.findElement(By.id("name")).sendKeys("sunshine");
+//		edriver.findElement(By.id("alertbtn")).click();
+//		edriver.switchTo().alert().accept();
+//		edriver.findElement(By.id("openwindow")).click();
+//		List<String> handles = new ArrayList<>(edriver.getWindowHandles());
+//		edriver.switchTo().window(handles.get(1));
+//		edriver.findElement(By.id("header-sign-up-btn")).getText();
+//		edriver.switchTo().window(handles.get(0));
+//		edriver.findElement(By.id("hondaradio")).click();
+//		edriver.close();
 		
 		
 
